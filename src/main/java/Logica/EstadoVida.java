@@ -47,4 +47,8 @@ public class EstadoVida<A extends Integer, B extends Integer> {
         int vidaDaniada = vidaActual - danio;
         vidaActual = (B) Integer.valueOf(vidaDaniada);
     }
+    
+    public String mostrarDatosVida(){
+        return "Vida Maxima: " + vidaMaxima.intValue() + " Vida Actual: " + vidaActual.intValue();
+    }
 }
