@@ -8,7 +8,10 @@ public class Personaje implements IPersona{
     private EstadoVida<Integer,Integer> vida;
     private int habilidadAtaque;
     private int habilidadDefensa;
-    private int[] vectorDeDefensas = new int[8];
+    private byte[] vectorDeDefensas = new byte[8];
+
+    public Personaje() {
+    }
 
     public String getNombre() {
         return nombre;
@@ -38,11 +41,11 @@ public class Personaje implements IPersona{
         this.habilidadDefensa = habilidadDefensa;
     }
 
-    public int[] getVectorDeDefensas() {
+    public byte[] getVectorDeDefensas() {
         return vectorDeDefensas;
     }
 
-    public void setVectorDeDefensas(int[] vectorDeDefensas) {
+    public void setVectorDeDefensas(byte[] vectorDeDefensas) {
         this.vectorDeDefensas = vectorDeDefensas;
     }
 
@@ -54,7 +57,25 @@ public class Personaje implements IPersona{
         this.vida.comprobarYcurar(cantidadVida);
     }
     @Override
-    public void daniar(int cantidadVida){
+    public void recibirDanio(int danio){
+        aplicarDanio(danio);
+    }
+    
+    @Override
+    public int calcularDanioRecibido(int dado, byte tipoDanio,
+            int ataqueRecibido, int danio){
+        int resultadoAtaque = dado + ataqueRecibido - vectorDeDefensas[tipoDanio] * 10 - 
+                habilidadDefensa - 20;
+        if (resultadoAtaque < 0){
+            resultadoAtaque = 0;
+        }
+        
+        float resultadoPorcentual = (float) ((float) resultadoAtaque/100); //Acomoda el valor en flaot
+        int danioResultanteRecibido = (int) (resultadoPorcentual * danio);
+        
+        return danioResultanteRecibido;
+    }
+    private void aplicarDanio (int cantidadVida){
         this.vida.daniarVida(cantidadVida);
     }
     @Override
@@ -102,7 +123,7 @@ public class Personaje implements IPersona{
     }
     
     public Personaje(String nombre, int vidaMaxima, int habilidadDeAtaque,
-            int habilidadDeDefensa, int[] vectorDeDefensas){
+            int habilidadDeDefensa, byte[] vectorDeDefensas){
         this.nombre = nombre;
         this.vida = new EstadoVida<Integer,Integer>(vidaMaxima);
         this.habilidadAtaque = habilidadDeAtaque;
