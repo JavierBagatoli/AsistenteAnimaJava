@@ -5,7 +5,8 @@
 package Logica;
 
 /**
- * @author JavW11trial
+ * @author JavWdes
+ * 
  */
 public interface IPersona {
     public void curar(int cantidadVida);

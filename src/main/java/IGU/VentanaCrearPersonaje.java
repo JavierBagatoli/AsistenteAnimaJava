@@ -5,10 +5,14 @@
 package IGU;
 
 import Logica.Personaje;
+import static java.lang.Integer.toString;
+import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author JavW11trial
+ * @author Javier Bagatoli
+ * fecha 14/04/202
  */
 public class VentanaCrearPersonaje extends javax.swing.JFrame {
     Personaje personaje;
@@ -49,11 +53,12 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jSpHabilidadCombate1 = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
-        jSpDefensaOponente = new javax.swing.JSpinner();
-        jPanel2 = new javax.swing.JPanel();
+        jSpDefensa = new javax.swing.JSpinner();
+        jPAccionCrear = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        panelSalirCrear = new javax.swing.JPanel();
+        jPAccionSalir = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         jLabel3.setText("Habilidad Combate");
 
@@ -92,10 +97,17 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
 
         jLabel5.setText("Defensa");
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPAccionCrear.setBackground(new java.awt.Color(0, 102, 102));
+        jPAccionCrear.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPAccionCrear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel2MouseClicked(evt);
+                jPAccionCrearMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPAccionCrearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPAccionCrearMouseExited(evt);
             }
         });
 
@@ -103,27 +115,34 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Crear");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPAccionCrearLayout = new javax.swing.GroupLayout(jPAccionCrear);
+        jPAccionCrear.setLayout(jPAccionCrearLayout);
+        jPAccionCrearLayout.setHorizontalGroup(
+            jPAccionCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPAccionCrearLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(jLabel6)
                 .addContainerGap(70, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        jPAccionCrearLayout.setVerticalGroup(
+            jPAccionCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPAccionCrearLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelSalirCrear.setBackground(new java.awt.Color(102, 0, 0));
-        panelSalirCrear.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPAccionSalir.setBackground(new java.awt.Color(102, 0, 0));
+        jPAccionSalir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPAccionSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelSalirCrearMouseClicked(evt);
+                jPAccionSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPAccionSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPAccionSalirMouseExited(evt);
             }
         });
 
@@ -131,22 +150,24 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Salir");
 
-        javax.swing.GroupLayout panelSalirCrearLayout = new javax.swing.GroupLayout(panelSalirCrear);
-        panelSalirCrear.setLayout(panelSalirCrearLayout);
-        panelSalirCrearLayout.setHorizontalGroup(
-            panelSalirCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelSalirCrearLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPAccionSalirLayout = new javax.swing.GroupLayout(jPAccionSalir);
+        jPAccionSalir.setLayout(jPAccionSalirLayout);
+        jPAccionSalirLayout.setHorizontalGroup(
+            jPAccionSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPAccionSalirLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(jLabel9)
                 .addContainerGap(70, Short.MAX_VALUE))
         );
-        panelSalirCrearLayout.setVerticalGroup(
-            panelSalirCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelSalirCrearLayout.createSequentialGroup()
+        jPAccionSalirLayout.setVerticalGroup(
+            jPAccionSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPAccionSalirLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jLabel10.setText("jLabel10");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -184,7 +205,7 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
                                             .addComponent(jLabel5))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jSpDefensaOponente)
+                                            .addComponent(jSpDefensa)
                                             .addComponent(jSpHabilidadCombate1))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSDefensa3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,11 +216,15 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSDefensa6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90)
-                        .addComponent(panelSalirCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(jLabel10)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jPAccionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPAccionSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,12 +256,14 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jSpDefensaOponente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelSalirCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jSpDefensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPAccionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPAccionSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -259,15 +286,49 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jTextNombreJ1ActionPerformed
 
-    private void panelSalirCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSalirCrearMouseClicked
+    private void jPAccionSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAccionSalirMouseClicked
         this.dispose();
-    }//GEN-LAST:event_panelSalirCrearMouseClicked
+    }//GEN-LAST:event_jPAccionSalirMouseClicked
 
-    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+    private void jPAccionCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAccionCrearMouseClicked
+        String nombre = (String) jTextNombreJ1.getText();
+        int vida = (int) jSpVida.getValue();
         int habilidadCombate = (int) jSpHabilidadCombate.getValue();
-        this.personaje.setHabilidadAtaque(habilidadCombate);
+        int habilidadDefensa = (int) jSpDefensa.getValue();
+        byte[] vectorDefensa = new byte[7];
+        vectorDefensa[0] = (byte) jSDefensa0.getValue();
+        vectorDefensa[1] = (byte) jSDefensa1.getValue();
+        vectorDefensa[2] = (byte) jSDefensa2.getValue();
+        vectorDefensa[3] = (byte) jSDefensa3.getValue();
+        vectorDefensa[4] = (byte) jSDefensa4.getValue();
+        vectorDefensa[5] = (byte) jSDefensa5.getValue();
+        vectorDefensa[6] = (byte) jSDefensa6.getValue();
+        
+        
+        personaje.setNombre(nombre);
+        personaje.setVida(vida);
+        personaje.setHabilidadAtaque(habilidadCombate);
+        personaje.setHabilidadDefensa(habilidadDefensa);
+        personaje.setVectorDeDefensas(vectorDefensa);
+        
         this.dispose();
-    }//GEN-LAST:event_jPanel2MouseClicked
+    }//GEN-LAST:event_jPAccionCrearMouseClicked
+
+    private void jPAccionCrearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAccionCrearMouseEntered
+        jPAccionCrear.setBorder(BorderFactory.createLoweredBevelBorder());
+    }//GEN-LAST:event_jPAccionCrearMouseEntered
+
+    private void jPAccionCrearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAccionCrearMouseExited
+        jPAccionCrear.setBorder(BorderFactory.createRaisedBevelBorder());
+    }//GEN-LAST:event_jPAccionCrearMouseExited
+
+    private void jPAccionSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAccionSalirMouseEntered
+        jPAccionSalir.setBorder(BorderFactory.createLoweredBevelBorder());
+    }//GEN-LAST:event_jPAccionSalirMouseEntered
+
+    private void jPAccionSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAccionSalirMouseExited
+        jPAccionSalir.setBorder(BorderFactory.createRaisedBevelBorder());
+    }//GEN-LAST:event_jPAccionSalirMouseExited
 
     /**
      * @param args the command line arguments
@@ -306,6 +367,7 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -314,8 +376,9 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPAccionCrear;
+    private javax.swing.JPanel jPAccionSalir;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JSpinner jSDefensa0;
     private javax.swing.JSpinner jSDefensa1;
     private javax.swing.JSpinner jSDefensa2;
@@ -323,11 +386,10 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
     private javax.swing.JSpinner jSDefensa4;
     private javax.swing.JSpinner jSDefensa5;
     private javax.swing.JSpinner jSDefensa6;
-    private javax.swing.JSpinner jSpDefensaOponente;
+    private javax.swing.JSpinner jSpDefensa;
     private javax.swing.JSpinner jSpHabilidadCombate;
     private javax.swing.JSpinner jSpHabilidadCombate1;
     private javax.swing.JSpinner jSpVida;
     private javax.swing.JTextField jTextNombreJ1;
-    private javax.swing.JPanel panelSalirCrear;
     // End of variables declaration//GEN-END:variables
 }

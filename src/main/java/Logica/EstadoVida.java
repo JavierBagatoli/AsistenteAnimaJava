@@ -2,7 +2,8 @@ package Logica;
 
 /**
  *
- * @author JavW11trial
+ * @author Javier Bagatoli
+ * fecha 12/04/202
  * @param <A>
  * @param <B>
  */

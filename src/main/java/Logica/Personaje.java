@@ -1,17 +1,17 @@
 package Logica;
 
+import javax.swing.JOptionPane;
+
 /**
- * @author JavW11trial
+ * @author Javier Bagatoli
+ * fecha 12/04/2022
  */
 public class Personaje implements IPersona{
     private String nombre;
     private EstadoVida<Integer,Integer> vida;
     private int habilidadAtaque;
     private int habilidadDefensa;
-    private byte[] vectorDeDefensas = new byte[8];
-
-    public Personaje() {
-    }
+    private byte[] vectorDeDefensas = new byte[7];
 
     public String getNombre() {
         return nombre;
@@ -23,6 +23,11 @@ public class Personaje implements IPersona{
     
     public EstadoVida<Integer, Integer> getVida() {
         return vida;
+    }
+    
+    public void setVida(int vida){
+        EstadoVida vidaMaxima = new EstadoVida<Integer,Integer>(vida,vida);
+        this.vida = vidaMaxima;
     }
 
     public int getHabilidadAtaque() {
@@ -109,7 +114,20 @@ public class Personaje implements IPersona{
         // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
-    
+        public Personaje() {
+        this.nombre = "test";
+        this.habilidadAtaque = -10;
+        this.habilidadDefensa = -10;
+        this.vectorDeDefensas[0] = -1;
+        this.vectorDeDefensas[1] = -1;
+        this.vectorDeDefensas[2] = -1;
+        this.vectorDeDefensas[3] = -1;
+        this.vectorDeDefensas[4] = -1;
+        this.vectorDeDefensas[5] = -1;
+        this.vectorDeDefensas[6] = -1;
+        this.vida = new EstadoVida<Integer,Integer>(-1,-1);
+        
+    }
     
     public Personaje(String nombre, int vidaMaxima, int habilidadDeAtaque,
             int habilidadDeDefensa) {
