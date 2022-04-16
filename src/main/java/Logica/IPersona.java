@@ -14,5 +14,6 @@ public interface IPersona {
     public int calcularDanioRecibido(int dado, byte tipoDanio, int ataque, int danio);
     public void atacar();
     public void aumentarVida(int cantidadVida);
-    public String mostrarDatos();
+    public String mostrarDatos();   
 }
+

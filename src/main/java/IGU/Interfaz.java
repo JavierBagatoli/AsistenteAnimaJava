@@ -6,6 +6,7 @@ package IGU;
 
 import Logica.IPersona;
 import Logica.Personaje;
+import java.awt.Color;
 import java.text.DecimalFormat;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
@@ -186,6 +187,8 @@ public class Interfaz extends javax.swing.JFrame {
         jLTitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLTitulo.setText("Asistente de combate");
 
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+
         danioEnemigo.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         jCTipoDanio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filo", "Penetrante", "Cortante", "Calor", "Electrico", "Frio", "Energia" }));
@@ -238,9 +241,8 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -270,6 +272,7 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCalcularActionPerformed
+        try{
         int danioEnemigo1 = (int) danioEnemigo.getValue();
         int habilidadAtaqueEnemigo1 = (int) habilidadAtaqueEnemigo.getValue();
         byte tipoAtaque = (byte) jCTipoDanio.getSelectedIndex();
@@ -277,6 +280,9 @@ public class Interfaz extends javax.swing.JFrame {
         double resultadoAtaque = personaje1.
             calcularDanioRecibido(20, tipoAtaque, habilidadAtaqueEnemigo1, danioEnemigo1);
         mostrarDañoAProducirConFormato(resultadoAtaque);
+        }catch(NullPointerException e){
+            jLabelResultado.setText("No calculable");
+        }
     }//GEN-LAST:event_jBCalcularActionPerformed
 
     private void jBAplicarDanioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAplicarDanioActionPerformed
@@ -311,10 +317,12 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void jPBotonCrearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPBotonCrearMouseEntered
         jPBotonCrear.setBorder(BorderFactory.createLoweredBevelBorder());
+        jPBotonCrear.setBackground(new Color(0,102,102));
     }//GEN-LAST:event_jPBotonCrearMouseEntered
 
     private void jPBotonCrearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPBotonCrearMouseExited
         jPBotonCrear.setBorder(BorderFactory.createRaisedBevelBorder());
+        jPBotonCrear.setBackground(new Color(0,114,123));
     }//GEN-LAST:event_jPBotonCrearMouseExited
 
     /**
