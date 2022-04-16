@@ -3,7 +3,7 @@ package Logica;
 /**
  *
  * @author Javier Bagatoli
- * fecha 12/04/202
+ * fecha 12/04/2022
  * @param <A>
  * @param <B>
  */
@@ -21,7 +21,7 @@ public class EstadoVida<A extends Integer, B extends Integer> {
         this.vidaActual = (B) this.vidaMaxima;
     }
     
-    private void aumentarVida(Integer aumentoDeVida){
+    public void aumentarVida(Integer aumentoDeVida){
         int NuevaVida = vidaMaxima + aumentoDeVida;
         vidaMaxima = (A) Integer.valueOf(NuevaVida);
     }

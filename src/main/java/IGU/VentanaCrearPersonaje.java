@@ -25,6 +25,19 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.personaje = personajeAtraido;
         initComponents();
+        if(!(personaje.getNombre()).equals("test")){
+            jTextNombreJ1.setText(personaje.getNombre());
+            jSpVida.setValue(10);
+            jSDefensa0.setValue(personaje.getVectorDeDefensas()[0]);
+            jSDefensa1.setValue(personaje.getVectorDeDefensas()[1]);
+            jSDefensa2.setValue(personaje.getVectorDeDefensas()[2]);
+            jSDefensa3.setValue(personaje.getVectorDeDefensas()[3]);
+            jSDefensa4.setValue(personaje.getVectorDeDefensas()[4]);
+            jSDefensa5.setValue(personaje.getVectorDeDefensas()[5]);
+            jSDefensa6.setValue(personaje.getVectorDeDefensas()[6]);
+            jSpHabilidadCombate1.setValue(personaje.getHabilidadAtaque());
+            jSpDefensa.setValue(personaje.getHabilidadDefensa());
+        }
     }
 
     private VentanaCrearPersonaje() {
@@ -59,7 +72,6 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jPAccionSalir = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
 
         jLabel3.setText("Habilidad Combate");
 
@@ -182,8 +194,6 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel10.setText("jLabel10");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -199,7 +209,6 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextNombreJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSpVida, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel10)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
@@ -231,11 +240,11 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
                         .addComponent(jSDefensa6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(35, 35, 35)
                 .addComponent(jPAccionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPAccionSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addGap(38, 38, 38))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,13 +277,11 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jSpDefensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPAccionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPAccionSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -285,9 +292,7 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -304,7 +309,7 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
     private void jPAccionCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAccionCrearMouseClicked
         String nombre = (String) jTextNombreJ1.getText();
         int vida = (int) jSpVida.getValue();
-        int habilidadCombate = (int) jSpHabilidadCombate.getValue();
+        int habilidadCombate = (int) jSpHabilidadCombate1.getValue();
         int habilidadDefensa = (int) jSpDefensa.getValue();
         byte[] vectorDefensa = new byte[7];
         vectorDefensa[0] = (byte) jSDefensa0.getValue();
@@ -314,14 +319,13 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
         vectorDefensa[4] = (byte) jSDefensa4.getValue();
         vectorDefensa[5] = (byte) jSDefensa5.getValue();
         vectorDefensa[6] = (byte) jSDefensa6.getValue();
-        
-        
+
         personaje.setNombre(nombre);
         personaje.setVida(vida);
         personaje.setHabilidadAtaque(habilidadCombate);
         personaje.setHabilidadDefensa(habilidadDefensa);
         personaje.setVectorDeDefensas(vectorDefensa);
-        
+
         this.dispose();
     }//GEN-LAST:event_jPAccionCrearMouseClicked
 
@@ -382,7 +386,6 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
