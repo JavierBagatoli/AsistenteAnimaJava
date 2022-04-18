@@ -44,7 +44,9 @@ public class Personaje implements IPersona{
     }
 
     public void setHabilidadDefensa(int habilidadDefensa) {
+        
         this.habilidadDefensa = habilidadDefensa;
+        JOptionPane.showMessageDialog(null, this.getHabilidadDefensa());
     }
 
     public byte[] getVectorDeDefensas() {

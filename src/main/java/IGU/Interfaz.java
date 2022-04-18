@@ -357,9 +357,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jBMostrarDatosPersonaje1ActionPerformed
 
     private void jPBotonCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPBotonCrearMouseClicked
-        try{
-            personaje1.getClass();
-        }catch(NullPointerException e){
+        if (personaje1 == null){
             personaje1 = new Personaje();
         }
         VentanaCrearPersonaje ventanaPersonaje1 = new VentanaCrearPersonaje(personaje1);        

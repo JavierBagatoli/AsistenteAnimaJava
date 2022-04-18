@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.JLabel" name="jLabel3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Habilidad Combate"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JSpinner" name="jSpHabilidadCombate">
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -87,8 +78,8 @@
                                           </Group>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jSpDefensa" max="32767" attributes="0"/>
-                                              <Component id="jSpHabilidadCombate1" max="32767" attributes="0"/>
+                                              <Component id="jSpHabilidadCombate" max="32767" attributes="0"/>
+                                              <Component id="jSpHabilidaDefensa" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -144,12 +135,12 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jSpHabilidadCombate1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jSpHabilidadCombate" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jSpDefensa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jSpHabilidaDefensa" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -276,7 +267,7 @@
             <Property name="text" type="java.lang.String" value="Habilidad Combate"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="jSpHabilidadCombate1">
+        <Component class="javax.swing.JSpinner" name="jSpHabilidadCombate">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -286,10 +277,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Defensa"/>
+            <Property name="text" type="java.lang.String" value="Habilida Defensa"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JSpinner" name="jSpDefensa">
         </Component>
         <Container class="javax.swing.JPanel" name="jPAccionCrear">
           <Properties>
@@ -393,6 +382,8 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JSpinner" name="jSpHabilidaDefensa">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

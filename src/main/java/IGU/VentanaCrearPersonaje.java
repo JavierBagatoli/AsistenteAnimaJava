@@ -13,8 +13,9 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Javier Bagatoli
- * fecha 14/04/202
+ * fecha 14/04/2022
  */
+
 public class VentanaCrearPersonaje extends javax.swing.JFrame {
     Personaje personaje;
     /**
@@ -35,8 +36,8 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
             jSDefensa4.setValue(personaje.getVectorDeDefensas()[4]);
             jSDefensa5.setValue(personaje.getVectorDeDefensas()[5]);
             jSDefensa6.setValue(personaje.getVectorDeDefensas()[6]);
-            jSpHabilidadCombate1.setValue(personaje.getHabilidadAtaque());
-            jSpDefensa.setValue(personaje.getHabilidadDefensa());
+            jSpHabilidadCombate.setValue(personaje.getHabilidadAtaque());
+            jSpHabilidaDefensa.setValue(personaje.getHabilidadDefensa());
         }
     }
 
@@ -48,8 +49,6 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        jSpHabilidadCombate = new javax.swing.JSpinner();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -65,15 +64,13 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jSpVida = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
-        jSpHabilidadCombate1 = new javax.swing.JSpinner();
+        jSpHabilidadCombate = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
-        jSpDefensa = new javax.swing.JSpinner();
         jPAccionCrear = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPAccionSalir = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-
-        jLabel3.setText("Habilidad Combate");
+        jSpHabilidaDefensa = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,7 +119,7 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Defensa");
+        jLabel5.setText("Habilida Defensa");
 
         jPAccionCrear.setBackground(new java.awt.Color(0, 102, 102));
         jPAccionCrear.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -228,8 +225,8 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
                                             .addComponent(jLabel5))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jSpDefensa)
-                                            .addComponent(jSpHabilidadCombate1))))
+                                            .addComponent(jSpHabilidadCombate)
+                                            .addComponent(jSpHabilidaDefensa))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSDefensa3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -272,11 +269,11 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jSpHabilidadCombate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpHabilidadCombate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jSpDefensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpHabilidaDefensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPAccionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -309,8 +306,8 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
     private void jPAccionCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAccionCrearMouseClicked
         String nombre = (String) jTextNombreJ1.getText();
         int vida = (int) jSpVida.getValue();
-        int habilidadCombate = (int) jSpHabilidadCombate1.getValue();
-        int habilidadDefensa = (int) jSpDefensa.getValue();
+        int habilidadCombate = (int) jSpHabilidadCombate.getValue();
+        int habilidadDefensa = (int) jSpHabilidaDefensa.getValue();
         byte[] vectorDefensa = new byte[7];
         vectorDefensa[0] = (byte) jSDefensa0.getValue();
         vectorDefensa[1] = (byte) jSDefensa1.getValue();
@@ -325,7 +322,10 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
         personaje.setHabilidadAtaque(habilidadCombate);
         personaje.setHabilidadDefensa(habilidadDefensa);
         personaje.setVectorDeDefensas(vectorDefensa);
-
+        
+        JOptionPane.showMessageDialog(null, "Spiner" + this.personaje.getHabilidadDefensa());
+        JOptionPane.showMessageDialog(null, this.personaje.getHabilidadDefensa());
+        
         this.dispose();
     }//GEN-LAST:event_jPAccionCrearMouseClicked
 
@@ -387,7 +387,6 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -404,9 +403,8 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
     private javax.swing.JSpinner jSDefensa4;
     private javax.swing.JSpinner jSDefensa5;
     private javax.swing.JSpinner jSDefensa6;
-    private javax.swing.JSpinner jSpDefensa;
+    private javax.swing.JSpinner jSpHabilidaDefensa;
     private javax.swing.JSpinner jSpHabilidadCombate;
-    private javax.swing.JSpinner jSpHabilidadCombate1;
     private javax.swing.JSpinner jSpVida;
     private javax.swing.JTextField jTextNombreJ1;
     // End of variables declaration//GEN-END:variables
