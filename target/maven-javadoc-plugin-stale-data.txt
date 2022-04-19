@@ -1,0 +1,52 @@
+@options
+@packages
+@argfile
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'D:/Javier/Documentos/NetBeansProjects/HerramientaCombateAnima/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'D:/Javier/Documentos/NetBeansProjects/HerramientaCombateAnima/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'HerramientaCombateAnima 0.05 API'
+-use
+-version
+-windowtitle
+'HerramientaCombateAnima 0.05 API'
+IGU
+Logica
+'D:/Javier/Documentos/NetBeansProjects/HerramientaCombateAnima/src/main/java/IGU/Interfaz.java'
+'D:/Javier/Documentos/NetBeansProjects/HerramientaCombateAnima/src/main/java/IGU/VentanaCrearPersonaje.java'
+'D:/Javier/Documentos/NetBeansProjects/HerramientaCombateAnima/src/main/java/Logica/Enemigo.java'
+'D:/Javier/Documentos/NetBeansProjects/HerramientaCombateAnima/src/main/java/Logica/EstadoVida.java'
+'D:/Javier/Documentos/NetBeansProjects/HerramientaCombateAnima/src/main/java/Logica/IPersona.java'
+'D:/Javier/Documentos/NetBeansProjects/HerramientaCombateAnima/src/main/java/Logica/Personaje.java'
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\src\main\java = 1649768805128
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\allclasses-index.html = 1650321815054
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\allpackages-index.html = 1650321815056
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\element-list = 1650321814958
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\help-doc.html = 1650321815075
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\index-all.html = 1650321815070
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\index.html = 1650321815042
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\jquery-ui.overrides.css = 1650321815093
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\member-search-index.js = 1650321815059
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\module-search-index.js = 1650321815057
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\overview-summary.html = 1650321815072
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\overview-tree.html = 1650321815038
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\package-search-index.js = 1650321815058
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\script.js = 1650321815077
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\search.js = 1650321815078
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\serialized-form.html = 1650321815009
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\stylesheet.css = 1650321815077
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\tag-search-index.js = 1650321815060
+D:\Javier\Documentos\NetBeansProjects\HerramientaCombateAnima\target\apidocs\type-search-index.js = 1650321815058

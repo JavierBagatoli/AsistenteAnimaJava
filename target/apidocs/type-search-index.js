@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"Logica","l":"Enemigo"},{"p":"Logica","l":"EstadoVida"},{"p":"IGU","l":"Interfaz"},{"p":"Logica","l":"IPersona"},{"p":"Logica","l":"Personaje"},{"p":"IGU","l":"VentanaCrearPersonaje"}];updateSearchResults();

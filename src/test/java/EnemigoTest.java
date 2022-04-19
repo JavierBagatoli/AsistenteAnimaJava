@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import Logica.Enemigo;
+import Logica.Personaje;
 
 /**
  *
@@ -49,4 +50,15 @@ public class EnemigoTest {
         Enemigo enemigo = new Enemigo();
         assertEquals(-10, enemigo.getHabilidadAtaque());
     }
+    @Test
+    public void nombreEnemigo(){
+        Enemigo enemigo = new Enemigo();
+        
+        assertEquals(true,comprobar(enemigo) );
+        
+    }
+    public boolean comprobar(Personaje per){
+        assertEquals("test", per.getNombre());
+        return true;
+        }
 }

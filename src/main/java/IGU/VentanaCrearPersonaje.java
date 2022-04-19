@@ -4,6 +4,7 @@
  */
 package IGU;
 
+import Logica.Enemigo;
 import Logica.Personaje;
 import java.awt.Color;
 import static java.lang.Integer.toString;
@@ -17,18 +18,23 @@ import javax.swing.JOptionPane;
  */
 
 public class VentanaCrearPersonaje extends javax.swing.JFrame {
-    Personaje personaje;
+    private Personaje personaje;
+    private Interfaz interfazMadre;
+    
     /**
      * Creates new form VentanaCrearPersonaje
+     * @param personajeAtraido
      */
-    public VentanaCrearPersonaje(Personaje personajeAtraido) {
+    public VentanaCrearPersonaje(Personaje personajeAtraido, Interfaz origen) {
         setUndecorated(true);
         setLocationRelativeTo(null);
         this.personaje = personajeAtraido;
+        this.interfazMadre = origen;
         initComponents();
-        if(!(personaje.getNombre()).equals("test")){
+        if(yaExiste(personaje)){
+            //Modificamos los valores de la plantilla a los del objeto
             jTextNombreJ1.setText(personaje.getNombre());
-            jSpVida.setValue(10);
+            jSpVida.setValue(personaje.getVida());
             jSDefensa0.setValue(personaje.getVectorDeDefensas()[0]);
             jSDefensa1.setValue(personaje.getVectorDeDefensas()[1]);
             jSDefensa2.setValue(personaje.getVectorDeDefensas()[2]);
@@ -36,9 +42,9 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
             jSDefensa4.setValue(personaje.getVectorDeDefensas()[4]);
             jSDefensa5.setValue(personaje.getVectorDeDefensas()[5]);
             jSDefensa6.setValue(personaje.getVectorDeDefensas()[6]);
-            jSpHabilidadCombate.setValue(personaje.getHabilidadAtaque());
-            jSpHabilidaDefensa.setValue(personaje.getHabilidadDefensa());
-        }
+            jSpHabilidadAtaque.setValue(personaje.getHabilidadAtaque());
+            jSpHabilidadDefensa.setValue(personaje.getHabilidadDefensa());
+        }        
     }
 
     private VentanaCrearPersonaje() {
@@ -62,15 +68,15 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextNombreJ1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jSpVida = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
-        jSpHabilidadCombate = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
         jPAccionCrear = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPAccionSalir = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jSpHabilidaDefensa = new javax.swing.JSpinner();
+        jSpVida = new javax.swing.JSpinner();
+        jSpHabilidadAtaque = new javax.swing.JSpinner();
+        jSpHabilidadDefensa = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,7 +121,7 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Habilidad Combate");
+        jLabel4.setText("Habilidad Ataque");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -191,50 +197,55 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jSpVida.setModel(new javax.swing.SpinnerNumberModel());
+
+        jSpHabilidadAtaque.setModel(new javax.swing.SpinnerNumberModel());
+
+        jSpHabilidadDefensa.setModel(new javax.swing.SpinnerNumberModel());
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel2))
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextNombreJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpVida, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel2))
+                                .addGap(21, 21, 21)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextNombreJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpVida, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jSDefensa0, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSDefensa0, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jSDefensa1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jSDefensa2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel5))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jSpHabilidadCombate)
-                                            .addComponent(jSpHabilidaDefensa))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSDefensa3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSDefensa4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jSpHabilidadDefensa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                                        .addComponent(jSpHabilidadAtaque, javax.swing.GroupLayout.Alignment.LEADING)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSDefensa5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSDefensa3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSDefensa6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jSDefensa4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSDefensa5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSDefensa6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
@@ -269,11 +280,11 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jSpHabilidadCombate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpHabilidadAtaque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jSpHabilidaDefensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpHabilidadDefensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPAccionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,10 +315,11 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
     }//GEN-LAST:event_jPAccionSalirMouseClicked
 
     private void jPAccionCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPAccionCrearMouseClicked
+        //Guardamos los datos del formulario
         String nombre = (String) jTextNombreJ1.getText();
         int vida = (int) jSpVida.getValue();
-        int habilidadCombate = (int) jSpHabilidadCombate.getValue();
-        int habilidadDefensa = (int) jSpHabilidaDefensa.getValue();
+        int habilidadAtaque = (int) jSpHabilidadAtaque.getValue();
+        int habilidadDefensa = (int) jSpHabilidadDefensa.getValue();
         byte[] vectorDefensa = new byte[7];
         vectorDefensa[0] = (byte) jSDefensa0.getValue();
         vectorDefensa[1] = (byte) jSDefensa1.getValue();
@@ -316,16 +328,17 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
         vectorDefensa[4] = (byte) jSDefensa4.getValue();
         vectorDefensa[5] = (byte) jSDefensa5.getValue();
         vectorDefensa[6] = (byte) jSDefensa6.getValue();
-
+        //Modificamos los valores segun correspondan al formulario
         personaje.setNombre(nombre);
         personaje.setVida(vida);
-        personaje.setHabilidadAtaque(habilidadCombate);
+        personaje.setHabilidadAtaque(habilidadAtaque);
+        
         personaje.setHabilidadDefensa(habilidadDefensa);
         personaje.setVectorDeDefensas(vectorDefensa);
-        
-        JOptionPane.showMessageDialog(null, "Spiner" + this.personaje.getHabilidadDefensa());
-        JOptionPane.showMessageDialog(null, this.personaje.getHabilidadDefensa());
-        
+        JOptionPane.showMessageDialog(rootPane, "spin: " + jSpHabilidadAtaque.getValue());
+        JOptionPane.showMessageDialog(rootPane, "var: " + habilidadAtaque);
+        JOptionPane.showMessageDialog(rootPane, "personaje: " + personaje.getHabilidadAtaque());
+        interfazMadre.mostrarDatosPer1();
         this.dispose();
     }//GEN-LAST:event_jPAccionCrearMouseClicked
 
@@ -383,7 +396,10 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
             }
         });
     }
-
+    private boolean yaExiste(Personaje personaje){
+        boolean yaExiste = !(personaje.getNombre()).equals("test");
+        return yaExiste;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -403,8 +419,8 @@ public class VentanaCrearPersonaje extends javax.swing.JFrame {
     private javax.swing.JSpinner jSDefensa4;
     private javax.swing.JSpinner jSDefensa5;
     private javax.swing.JSpinner jSDefensa6;
-    private javax.swing.JSpinner jSpHabilidaDefensa;
-    private javax.swing.JSpinner jSpHabilidadCombate;
+    private javax.swing.JSpinner jSpHabilidadAtaque;
+    private javax.swing.JSpinner jSpHabilidadDefensa;
     private javax.swing.JSpinner jSpVida;
     private javax.swing.JTextField jTextNombreJ1;
     // End of variables declaration//GEN-END:variables

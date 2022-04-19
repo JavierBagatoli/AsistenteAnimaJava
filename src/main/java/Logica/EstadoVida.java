@@ -1,5 +1,7 @@
 package Logica;
 
+import static java.lang.Math.abs;
+
 /**
  *
  * @author Javier Bagatoli
@@ -27,7 +29,7 @@ public class EstadoVida<A extends Integer, B extends Integer> {
     }
     
     public void comprobarYcurar(B curarVida){
-        if(faltaVida()){
+        if(faltaVida() && curarVida > 0){
             if(curarTodaVida(curarVida)){
                 vidaActual = (B) vidaMaxima;
             }else{
@@ -45,11 +47,15 @@ public class EstadoVida<A extends Integer, B extends Integer> {
     }
     
     public void daniarVida(B danio){
-        int vidaDaniada = vidaActual - danio;
+        int vidaDaniada = vidaActual - abs(danio);
         vidaActual = (B) Integer.valueOf(vidaDaniada);
     }
     
     public String mostrarDatosVida(){
         return "Vida Maxima: " + vidaMaxima.intValue() + " Vida Actual: " + vidaActual.intValue();
+    }
+    
+    public Integer getVida(){
+        return vidaActual;
     }
 }

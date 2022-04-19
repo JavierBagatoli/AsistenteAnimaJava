@@ -1,6 +1,7 @@
 package Logica;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  * @author Javier Bagatoli
@@ -22,13 +23,14 @@ public class Personaje implements IPersona{
         this.nombre = nombre;
     }
     
-    public EstadoVida<Integer, Integer> getVida() {
-        return vida;
+    public Integer getVida() {
+        return vida.getVida();
     }
     
     public void setVida(int vida){
         EstadoVida vidaMaxima = new EstadoVida<Integer,Integer>(vida,vida);
         this.vida = vidaMaxima;
+        JOptionPane.showMessageDialog(null, this.getVida());
     }
 
     public int getHabilidadAtaque() {
@@ -44,9 +46,7 @@ public class Personaje implements IPersona{
     }
 
     public void setHabilidadDefensa(int habilidadDefensa) {
-        
         this.habilidadDefensa = habilidadDefensa;
-        JOptionPane.showMessageDialog(null, this.getHabilidadDefensa());
     }
 
     public byte[] getVectorDeDefensas() {
